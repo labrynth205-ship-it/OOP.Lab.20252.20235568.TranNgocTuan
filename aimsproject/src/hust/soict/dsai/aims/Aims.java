@@ -1,4 +1,8 @@
-package aimsproject;
+package hust.soict.dsai.aims;
+
+import hust.soict.dsai.aims.cart.Cart;
+import hust.soict.dsai.aims.disc.DVD;
+import hust.soict.dsai.aims.store.Store;
 
 public class Aims {
 
