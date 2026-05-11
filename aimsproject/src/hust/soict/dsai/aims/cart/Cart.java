@@ -1,66 +1,45 @@
 package hust.soict.dsai.aims.cart;
 
-import hust.soict.dsai.aims.disc.DVD;
+import java.util.ArrayList;
+import hust.soict.dsai.aims.media.Media;
 
 public class Cart {
-    public static final int MAX_NUMBERS_ORDERED = 20;
-    private DVD[] itemsOrdered = new DVD[MAX_NUMBERS_ORDERED];
-    private int qtyOrdered = 0;
-    public void addDigitalVideoDisc(DVD disc) {
-        if (qtyOrdered < MAX_NUMBERS_ORDERED) {
-            itemsOrdered[qtyOrdered] = disc;
-            qtyOrdered++;
-            System.out.println("The disc has been added");
-            if (qtyOrdered == MAX_NUMBERS_ORDERED) {
-                System.out.println("The cart is almost full");
-            }
+    private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
+    public void addMedia(Media media) {
+        if (!itemsOrdered.contains(media)) {
+            itemsOrdered.add(media);
+            System.out.println(media.getTitle() + " added to cart.");
         } else {
-            System.out.println("The cart is full. Cannot add more discs!");
+            System.out.println(media.getTitle() + " already exists.");
         }
     }
-    public void addDigitalVideoDisc(DVD[] dvdList) {
-        for (DVD disc : dvdList) {
-          this.addDigitalVideoDisc(disc);
+    public void removeMedia(Media media) {
+        if (itemsOrdered.contains(media)) {
+            itemsOrdered.remove(media);
+            System.out.println(media.getTitle() + " deleted.");
+        } else {
+            System.out.println("Not found!");
         }
-        }
-    public void addDigitalVideoDisc(DVD dvd1, DVD dvd2) {
-        this.addDigitalVideoDisc(dvd1);
-        this.addDigitalVideoDisc(dvd2);
-    }
-    public void removeDigitalVideoDisc(DVD disc) {
-        for (int i = 0; i < qtyOrdered; i++) {
-            if (itemsOrdered[i] == disc) {
-                for (int j = i; j < qtyOrdered - 1; j++) {
-                    itemsOrdered[j] = itemsOrdered[j + 1];
-                }
-                itemsOrdered[qtyOrdered - 1] = null;
-                qtyOrdered--;
-                System.out.println("The disc has been removed");
-                return;
-            }
-        }
-        System.out.println("The disc is not in the cart");
     }
     public float totalCost() {
-        float sum = 0;
-        for (int i = 0; i < qtyOrdered; i++) {
-            sum += itemsOrdered[i].getCost();
+        float total = 0;
+        for (Media media : itemsOrdered) {
+            total += media.getCost();
         }
-        return sum;
+        return total;
     }
-    // Hàm in danh sách đĩa trong giỏ hàng
     public void print() {
         System.out.println("Ordered Items:");
-        for (int i = 0; i < this.qtyOrdered; i++) {
-            System.out.println((i + 1) + ". " + itemsOrdered[i].toString());
+        for (int i = 0; i < itemsOrdered.size(); i++) {
+            System.out.println((i + 1) + ". " + itemsOrdered.get(i).toString());
         }
-        System.out.println("Total cost: " + this.totalCost() + " $");
+        System.out.println("Total cost: " + totalCost());
     }
     public void searchById(int id) {
         boolean found = false;
-        for (int i = 0; i < this.qtyOrdered; i++) {
-            if (itemsOrdered[i].getId() == id) {
-                System.out.println("Found by ID (" + id + "): " + itemsOrdered[i].toString());
+        for (Media media : itemsOrdered) {
+            if (media.getId() == id) {
+                System.out.println("Found: " + media.toString());
                 found = true;
                 break;
             }
@@ -71,10 +50,11 @@ public class Cart {
     }
     public void searchByTitle(String title) {
         boolean found = false;
-        for (int i = 0; i < this.qtyOrdered; i++) {
-            if (itemsOrdered[i].isMatch(title)) {
-                System.out.println("Found by Title (" + title + "): " + itemsOrdered[i].toString());
+        for (Media media : itemsOrdered) {
+            if (media.getTitle().equalsIgnoreCase(title)) {
+                System.out.println("Found: " + media.toString());
                 found = true;
+                break;
             }
         }
         if (!found) {

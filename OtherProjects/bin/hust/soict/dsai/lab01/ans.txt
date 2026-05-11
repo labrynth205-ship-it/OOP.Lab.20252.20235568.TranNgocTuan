@@ -1,0 +1,2 @@
+neu nguoi dung bam cancel thi chuong trinh se in ra thong bao "You'vs chosen: No"
+muon chi hien cac lua chon yes va no, thi ta them JOptionPane.YES_NO_OPTION vao cuoi ham showConfirmDialog
