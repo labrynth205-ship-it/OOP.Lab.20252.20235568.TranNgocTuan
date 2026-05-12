@@ -35,4 +35,8 @@ public class Book extends Media {
     public void setAuthors(List<String> authors) {
         this.authors = authors;
     }
+    @Override
+    public String toString() {
+        return "Book - " + this.getTitle() + " - " + this.getCategory() + " - Authors: " + this.getAuthors() + " - " + this.getCost() + " $";
+    }
 }

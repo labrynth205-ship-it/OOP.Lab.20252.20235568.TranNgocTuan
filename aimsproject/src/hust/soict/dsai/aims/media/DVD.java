@@ -43,4 +43,8 @@ public class DVD extends Disc implements Playable{
         System.out.println("Playing " + this.getTitle());
         System.out.println("Length: " + this.getLength());
     }
+    @Override
+    public String toString() {
+        return "DVD - " + this.getTitle() + " - " + this.getCategory() + " - " + this.getDirector() + " - " + this.getLength() + " mins - " + this.getCost() + " $";
+    }
 }

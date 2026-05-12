@@ -21,4 +21,24 @@ public class Store {
             System.out.println("Not found.");
         }
     }
+    public void print() {
+        System.out.println("***********************STORE INVENTORY***********************");
+        if (itemsInStore.isEmpty()) {
+            System.out.println("The store is empty!");
+        } else {
+            for (int i = 0; i < itemsInStore.size(); i++) {
+                System.out.println((i + 1) + ". " + itemsInStore.get(i).toString());
+            }
+        }
+        System.out.println("*************************************************************");
+    }
+
+    public Media searchByTitle(String title) {
+        for (Media media : itemsInStore) {
+            if (media.getTitle().equalsIgnoreCase(title)) {
+                return media;
+            }
+        }
+        return null;
+    }
 }

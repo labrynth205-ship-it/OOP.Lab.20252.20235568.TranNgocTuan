@@ -1,1 +1,5 @@
-Java is strictly Pass-by-Value. There is no Pass-by-Reference in Java.
+Answer:
+1. The abstract class `Media`.
+2. Override `compareTo()`. Compare titles first. If titles are equal, compare costs.
+3. No. `Comparable` only allows one default sorting rule. For multiple rules, we must use `Comparator`.
+4. Override `compareTo()` in the `DVD` subclass. Use `instanceof` to check if the other object is a `DVD`. If yes, compare by title -> length (decreasing) -> cost. If not, call `super.compareTo()` to use the default `Media` sorting logic.

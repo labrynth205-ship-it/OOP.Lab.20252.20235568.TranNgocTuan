@@ -61,4 +61,22 @@ public class Cart {
             System.out.println("No match found for title: " + title);
         }
     }
+    // Trả về đối tượng Media nếu tìm thấy (để xóa hoặc play)
+    public Media searchMediaByTitle(String title) {
+        for (Media media : itemsOrdered) {
+            if (media.getTitle().equalsIgnoreCase(title)) {
+                return media;
+            }
+        }
+        return null;
+    }
+    public void sortByTitleCost() {
+        java.util.Collections.sort(itemsOrdered, Media.COMPARE_BY_TITLE_COST);
+        System.out.println("Cart has been sorted by Title then Cost.");
+    }
+
+    public void sortByCostTitle() {
+        java.util.Collections.sort(itemsOrdered, Media.COMPARE_BY_COST_TITLE);
+        System.out.println("Cart has been sorted by Cost then Title.");
+    }
 }
