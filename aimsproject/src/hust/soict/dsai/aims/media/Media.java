@@ -45,17 +45,6 @@ public abstract class Media implements Comparable<Media> {
         this.cost = cost;
     }
     @Override
-    public boolean equals(Object o) {
-        if (!(o instanceof Media)) {
-            return false;
-        }
-        Media other = (Media) o;
-        if (this.title != null && other.title != null) {
-            return this.title.equalsIgnoreCase(other.title);
-        }
-        return false;
-    }
-    @Override
     public String toString() {
         return "Media - " + this.getTitle() + " - " + this.getCategory() + " - " + this.getCost() + " $";
     }
@@ -66,5 +55,12 @@ public abstract class Media implements Comparable<Media> {
             return titleComparison; 
         }
         return Float.compare(other.getCost(), this.getCost());
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Media)) return false;
+        Media media = (Media) o;
+        return this.getTitle() != null && this.getTitle().equalsIgnoreCase(media.getTitle());
     }
 }

@@ -2,6 +2,7 @@ package hust.soict.dsai.aims;
 
 import java.util.Scanner;
 import hust.soict.dsai.aims.cart.Cart;
+import hust.soict.dsai.aims.exception.PlayerException;
 import hust.soict.dsai.aims.store.Store;
 import hust.soict.dsai.aims.media.*;
 
@@ -92,7 +93,15 @@ public static void main(String[] args) {
                                             System.out.println("Media added to cart.");
                                         } else if (detailsChoice == 2) {
                                             if (mediaDetails instanceof Playable) {
-                                                ((Playable) mediaDetails).play();
+                                                if (mediaDetails instanceof Playable) {
+                                                    try {
+                                                        ((Playable) mediaDetails).play();
+                                                    } catch (PlayerException e) {
+                                                        System.err.println("Cannot play media: " + e.getMessage());
+                                                    }
+                                                    } else {
+                                                        System.out.println("This media cannot be played.");
+                                                    }
                                             } else {
                                                 System.out.println("This media cannot be played.");
                                             }
@@ -122,7 +131,15 @@ public static void main(String[] args) {
                                 Media mediaPlay = store.searchByTitle(titlePlay);
                                 if (mediaPlay != null) {
                                     if (mediaPlay instanceof Playable) {
-                                        ((Playable) mediaPlay).play();
+                                        if (mediaPlay instanceof Playable) {
+                                            try {
+                                                ((Playable) mediaPlay).play();
+                                            } catch (PlayerException e) {
+                                                System.err.println("Cannot play media: " + e.getMessage());
+                                            }
+                                            } else {
+                                                System.out.println("This media cannot be played.");
+                                            }
                                     } else {
                                         System.out.println("This media cannot be played.");
                                     }
@@ -235,7 +252,16 @@ public static void main(String[] args) {
                                 Media mediaCartPlay = cart.searchMediaByTitle(titleCartPlay);
                                 if (mediaCartPlay != null) {
                                     if (mediaCartPlay instanceof Playable) {
-                                        ((Playable) mediaCartPlay).play();
+                                        if (mediaCartPlay instanceof Playable) {
+                                            try {
+                                                ((Playable) mediaCartPlay).play();
+                                            } catch (PlayerException e) {
+                                                // In ra thông báo lỗi thay vì để crash
+                                                System.err.println("Cannot play media: " + e.getMessage());
+                                            }
+                                        } else {
+                                            System.out.println("This media cannot be played.");
+                                            }
                                     } else {
                                         System.out.println("This media cannot be played.");
                                     }

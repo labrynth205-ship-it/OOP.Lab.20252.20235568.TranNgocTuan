@@ -1,10 +1,14 @@
 package hust.soict.dsai.aims.cart;
 
-import java.util.ArrayList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import hust.soict.dsai.aims.media.Media;
 
 public class Cart {
-    private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
+    private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
+    public ObservableList<Media> getItemsOrdered() {
+    return itemsOrdered;
+    }
     public void addMedia(Media media) {
         if (!itemsOrdered.contains(media)) {
             itemsOrdered.add(media);
@@ -61,7 +65,6 @@ public class Cart {
             System.out.println("No match found for title: " + title);
         }
     }
-    // Trả về đối tượng Media nếu tìm thấy (để xóa hoặc play)
     public Media searchMediaByTitle(String title) {
         for (Media media : itemsOrdered) {
             if (media.getTitle().equalsIgnoreCase(title)) {

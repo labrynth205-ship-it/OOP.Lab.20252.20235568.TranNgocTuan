@@ -41,4 +41,8 @@ public class Store {
         }
         return null;
     }
+    
+    public java.util.ArrayList<Media> getItemsInStore() {
+        return itemsInStore;
+    }
 }

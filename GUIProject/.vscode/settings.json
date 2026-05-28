@@ -1,0 +1,16 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "d:\\Stuff\\openjfx-25.0.3_windows-x64_bin-sdk\\javafx-sdk-25.0.3\\lib\\javafx.base.jar",
+        "d:\\Stuff\\openjfx-25.0.3_windows-x64_bin-sdk\\javafx-sdk-25.0.3\\lib\\javafx.controls.jar",
+        "d:\\Stuff\\openjfx-25.0.3_windows-x64_bin-sdk\\javafx-sdk-25.0.3\\lib\\javafx.fxml.jar",
+        "d:\\Stuff\\openjfx-25.0.3_windows-x64_bin-sdk\\javafx-sdk-25.0.3\\lib\\javafx.graphics.jar",
+        "d:\\Stuff\\openjfx-25.0.3_windows-x64_bin-sdk\\javafx-sdk-25.0.3\\lib\\javafx.media.jar",
+        "d:\\Stuff\\openjfx-25.0.3_windows-x64_bin-sdk\\javafx-sdk-25.0.3\\lib\\javafx.swing.jar",
+        "d:\\Stuff\\openjfx-25.0.3_windows-x64_bin-sdk\\javafx-sdk-25.0.3\\lib\\javafx.web.jar",
+        "d:\\Stuff\\openjfx-25.0.3_windows-x64_bin-sdk\\javafx-sdk-25.0.3\\lib\\javafx-swt.jar",
+        "d:\\Stuff\\openjfx-25.0.3_windows-x64_bin-sdk\\javafx-sdk-25.0.3\\lib\\jdk.jsobject.jar",
+        "d:\\Stuff\\openjfx-25.0.3_windows-x64_bin-sdk\\javafx-sdk-25.0.3\\lib\\jfx.incubator.input.jar",
+        "d:\\Stuff\\openjfx-25.0.3_windows-x64_bin-sdk\\javafx-sdk-25.0.3\\lib\\jfx.incubator.richtext.jar"
+    ]
+}
